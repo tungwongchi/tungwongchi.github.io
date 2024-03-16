@@ -38,6 +38,6 @@ renderer.code = function(code, infostring, escaped) {
     return originalCodeRenderer(code, infostring, escaped);
 };
 
-mermaid.init({});
+mermaid.init();
 
 marked.use({ renderer });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Blog Post</title>
+    <title>Tungwong Chi's Blog</title>
     <link rel="stylesheet" type="text/css" href="./stylesheets/common.css" media="screen">
     <link rel="stylesheet" type="text/css" href="./stylesheets/blog_md.css" media="screen">
 </head>
@@ -58,12 +58,6 @@ The conclusion of the article...
 
 To reference this article, please use the following formats:
 
-- **APA Format:**
-```
-author. (year, month date). 《title》[Blog post]. Retrieved from https://url
-```
-
-- **BibTeX Format:**
 ```bibtex
 @online{引用标识,
     title={title},
@@ -76,41 +70,45 @@ author. (year, month date). 《title》[Blog post]. Retrieved from https://url
 
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./javascripts/libs/marked.min.js"></script>
     <script src="./javascripts/libs/mermaid.min.js"></script>
     <script src="./javascripts/blog_libs.js"></script>
     <script> 
-        var queryString = window.location.search;
-        var queryParams = getQueryStringParams(queryString);
+        var queryString = window.location.search
+        var queryParams = getQueryStringParams(queryString)
         var path = queryParams['path'] || 'blog_template.md.md'
 
-        var markdownContainer = document.querySelector('#markdown-content');
+        var markdownContainer = document.querySelector('#markdown-content')
         var markdownContent = markdownContainer.innerText
-        document.querySelector('#blog-post-content').innerHTML = marked(markdownContent);
+        document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
 
         fetch('blog/' + path)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status}`)
                 }
-                return response.text();
+                return response.text()
             }).then(markdown => {
-                markdownContent = markdown;
-                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent);
-            });
+                markdownContent = markdown
+                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
+                mermaid.init()
+            })
 
-        const githubRepoContentUrl = 'https://api.github.com/repos/tungwongchi/blog/contents/' + path;
+        const githubRepoContentUrl = 'https://api.github.com/repos/tungwongchi/blog/contents/' + path
 
         fetch(githubRepoContentUrl, { headers: { 'Accept': 'application/vnd.github.v3.raw' } })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status}`)
                 }
-                return response.text();
+                return response.text()
             }).then(markdown => {
-                markdownContent = markdown;
-                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent);
-            });
+                markdownContent = markdown
+                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
+                mermaid.init()
+            })
     </script>
 </body>
 </html>
