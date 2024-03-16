@@ -1,0 +1,105 @@
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.main-content {
+  flex: 1;
+  margin: 20px;
+}
+.sidebar {
+  width: 250px;
+  margin: 20px; 
+}
+.section h3 {
+  font-size: 1.8rem;
+  color: #0dafff;
+  margin-bottom: 20px;
+}
+.hot-tags {
+  margin-bottom: 20px;
+}
+.tag-button {
+  background: #333;
+  color: #0dafff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.tag-button:hover {
+  background: #0dafff;
+  color: #fff;
+}
+.hidden {
+  display: none;
+}
+.blog-post {
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.blog-post h4 {
+  margin: 0;
+  color: #fff;
+}
+.blog-post p {
+  font-size: 1rem;
+  color: #aaa;
+}
+.blog-post a {
+  color: #0dafff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.blog-post a:hover {
+  text-decoration: underline;
+}
+.category {
+  display: inline-block;
+  background: #333;
+  color: #0dafff;
+  padding: 3px 7px;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+.archive-list, .category-list {
+  list-style: none;
+  padding: 0;
+}
+.archive-list li, .category-list li {
+  margin-bottom: 5px;
+}
+.archive-list a, .category-list a {
+  color: #0dafff;
+  text-decoration: none;
+}
+.archive-list a:hover, .category-list a:hover {
+  text-decoration: underline;
+}
+.about-me {
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.about-me h4 {
+  margin: 0;
+  color: #fff;
+}
+.about-me p {
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}

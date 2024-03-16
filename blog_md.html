@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Blog Post</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/common.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/blog_md.css" media="screen">
+</head>
+<body>
+    <header>
+        <h1>Tungwong Chi's Blog</h1>
+    </header>
+
+    <div class="markdown-container" id="blog-post-content">
+        <!-- auto render markdown data -->
+    </div>
+
+    <footer>
+        <p>&copy; 2020 Tungwong Chi. All rights reserved.</p>
+    </footer>
+
+    <script type="text/markdown" id="markdown-content">
+# Article Title
+
+Posted on [Date] by [Author Name]
+
+## Abstract
+This is the abstract of the article, providing a brief summary of the content and key points discussed within the blog post.
+
+## 1. Introduction
+The introduction section of the article...
+
+## 2. Main Content
+The main content of the article, which may include several subsections...
+
+    </script>
+        
+    <script src="./javascripts/marked.min.js"></script>
+    <script>
+        var markdownContent = document.getElementById('markdown-content').innerText;
+        document.getElementById('blog-post-content').innerHTML = marked(markdownContent);
+        var renderer = new marked.Renderer();
+        renderer.heading = function (text, level) {
+            if (level === 1) {
+                return '<h2 class="article-title">' + text + '</h2>';
+            } else if (level === 2) {
+                return '<div class="abstract"><h2>' + text + '</h2>';
+            } else {
+                return '<div class="section"><h2>' + level + '. ' + text + '</h2>';
+            }
+        };
+        renderer.paragraph = function (text) {
+            if (text.startsWith('Posted on')) {
+                return '<p class="metadata">' + text + '</p>';
+            } else {
+                return '<p>' + text + '</p>';
+            }
+        };
+        marked.use({ renderer });
+        document.getElementById('blog-post-content').innerHTML = marked(markdownContent);
+    </script>
+</body>
+</html>

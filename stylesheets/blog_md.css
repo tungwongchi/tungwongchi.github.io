@@ -1,0 +1,47 @@
+
+.markdown-container {
+  width: 80%;
+  margin: auto;
+  max-width: 900px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.container {
+  width: 80%;
+  margin: auto;
+  max-width: 900px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+.article-title {
+  font-size: 2rem;
+  color: #0dafff;
+  margin-bottom: 10px;
+}
+.metadata {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+.abstract, .section {
+  margin-bottom: 20px;
+}
+.abstract h2, .section h2 {
+  font-size: 1.5rem;
+  color: #0dafff;
+  margin-bottom: 10px;
+}
+.abstract p, .section p {
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.5;
+}
