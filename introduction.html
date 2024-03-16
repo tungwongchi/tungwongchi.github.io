@@ -62,31 +62,7 @@ url={\url{https://url}},
         var markdownContent = markdownContainer.innerText
         document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
 
-        fetch('blog/' + path)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`)
-                }
-                return response.text()
-            }).then(markdown => {
-                markdownContent = markdown
-                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
-                mermaid.init()
-            })
-
-        const githubRepoContentUrl = 'https://api.github.com/repos/tungwongchi/blog/contents/' + path
-
-        fetch(githubRepoContentUrl, { headers: { 'Accept': 'application/vnd.github.v3.raw' } })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`)
-                }
-                return response.text()
-            }).then(markdown => {
-                markdownContent = markdown
-                document.querySelector('#blog-post-content').innerHTML = marked(markdownContent)
-                mermaid.init()
-            })
+        fetchBlog('#blog-post-content', path)
     </script>
 </body>
 </html>
